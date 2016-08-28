@@ -1,0 +1,11 @@
+{% import "person_layout.html" as person_layout %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ person.name }}</title>
+</head>
+<body>
+{{ person_layout.person(person) }}
+</body>
+</html>
