@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="row">
+  {% for reg in registry %}
+  <div class="one-third column"></div>
+  <div class="two-thirds column">
+    <h1><a href="{{ reg.url }}">{{ reg.name }}</a></h1>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
