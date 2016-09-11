@@ -1,0 +1,59 @@
+{% extends "contained.html" %}
+{% block header %}
+  <script src="{{ url_for('static', filename='js/rsvp.js') }}"></script>
+{% endblock %}
+{% block container %}
+<form xmlns="http://www.w3.org/1999/html" action="/rsvp" method="POST">
+  <div class="row">
+    <div class="one columns">
+      <label for="num_guests">No. of Guests</label>
+      <select name="num_guests" class="u-full-width" id="num_guests">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+  </div>
+  {% for i in [0, 1, 2, 3] %}
+  <div class="row rsvp_row{{ ' hidden-rsvp-row' if i > 0 else '' }}">
+    <div class="two columns">
+      <label for="name_title">Title</label>
+      <select name="name_title_{{ i }}" class="u-full-width" id="name_title">
+        <option selected disabled>Select</option>
+        <option value="Mrs.">Mrs.</option>
+        <option value="Mr.">Mr.</option>
+        <option value="Dr.">Dr.</option>
+        <option value="Ms.">Ms.</option>
+      </select>
+    </div>
+    <div class="two columns">
+      <label for="first_name">First</label>
+      <input name="first_name_{{ i }}" class="u-full-width" type="text" placeholder="Bob" id="first_name">
+    </div>
+    <div class="three columns">
+      <label for="last_name">Last</label>
+      <input name="last_name_{{ i }}" class="u-full-width" type="text" placeholder="Loblaw" id="last_name">
+    </div>
+    <div class="four columns">
+      <fieldset>
+        <label for="">Attending?</label>
+        <div class="three columns">
+          <label for="attending-yes">
+            <input type="radio" name="attending_{{ i }}" id="attending_yes_{{ i }}" value="yes" /> Yes
+          </label>
+        </div>
+        <div class="three columns">
+          <label for="attending-no">
+            <input type="radio" name="attending_{{ i }}" id="attending_no_{{ i }}" value="no" /> No
+          </label>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  {% endfor %}
+  <label for="comments">Comments?</label>
+  <textarea name="comments" class="u-full-width" placeholder="Dear Eliot & Michele …" id="comments"></textarea>
+  <input class="button-primary" type="submit" value="Submit">
+</form>
+{% endblock %}

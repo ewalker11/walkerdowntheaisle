@@ -1,29 +1,41 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>Walker Down the Aisle - {{ page_name | capitalize }}</title>
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon-32x32.png') }}" sizes="32x32" />
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon-16x16.png') }}" sizes="16x16" />
 
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lusitana">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bebas_neue.css') }}">
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/normalize.css') }}">
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/skeleton.css') }}">
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/custom.css') }}">
-  <title>Walker Down the Aisle - {{ page_name | capitalize }}</title>
+
+  <script src="{{ url_for('static', filename='js/zepto.js') }}"></script>
+{% block header %}
+{% endblock %}
 </head>
 <body>
-  <div class="container">
-    <nav class="navbar">
-      <div class="container">
-        <ul class="navbar-list">
-          <li class="navbar-item"><a class="navbar-link" href="/">About</a></li>
-          <li class="navbar-item"><a class="navbar-link" href="/people">People</a></li>
-          <li class="navbar-item"><a class="navbar-link" href="/registry">Registry</a></li>
-        </ul>
+  <nav class="navbar">
+    <div class="container">
+      <div class="row">
+        <div class="one-half column">
+        </div>
+        <div class="one-half column">
+          <ul class="navbar-list">
+            <li class="navbar-item"><a class="navbar-link" href="/">About</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="/people">People</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="/registry">Registry</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="/rsvp">RSVP</a></li>
+          </ul>
+        </div>
       </div>
-    </nav>
-    {% block body %}{% endblock %}
-  </div>
+    </div>
+  </nav>
+  {% block body %}
+  {% endblock %}
 </body>
 </html>

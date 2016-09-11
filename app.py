@@ -1,9 +1,12 @@
 import glob
 import json
 import os
+import uuid
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from jinja2 import TemplateNotFound
+
+from models import Attendee
 
 PAGE_DATA = {}
 
@@ -26,12 +29,31 @@ def template_not_found(_):
     return render_template('notfound.html'), 404
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
 
-@app.route('/<page>')
+@app.route('/rsvp', methods=['POST'])
+def create_attendees():
+    attendees = []
+    submission = str(uuid.uuid4())
+    for i in xrange(int(request.form.get('num_guests'))):
+        attending_raw = request.form.get('attending_{}'.format(i))
+        attendee = Attendee(
+            title=request.form.get('name_title_{}'.format(i)),
+            first_name=request.form.get('first_name_{}'.format(i)),
+            last_name=request.form.get('last_name_{}'.format(i)),
+            attending=(attending_raw == 'yes'),
+            submission=submission,
+        )
+        if i == 0:
+            attendee.comments = request.form.get('comments')
+        attendees.append(attendee)
+    return router('rsvp')
+
+
+@app.route('/<page>', methods=['GET'])
 def router(page):
     return render_template('{}.html'.format(page), page_name=page, **PAGE_DATA.get(page, {}))
 
