@@ -122,3 +122,10 @@ img {
   display: none;
 }
 
+input.error {
+  background: lightpink;
+}
+
+fieldset.error {
+  background: lightpink;
+}

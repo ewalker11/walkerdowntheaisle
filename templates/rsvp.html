@@ -3,7 +3,7 @@
   <script src="{{ url_for('static', filename='js/rsvp.js') }}"></script>
 {% endblock %}
 {% block container %}
-<form xmlns="http://www.w3.org/1999/html" action="/rsvp" method="POST">
+<form id="rsvp-form" xmlns="http://www.w3.org/1999/html" action="/rsvp" method="POST">
   <div class="row">
     <div class="one columns">
       <label for="num_guests">No. of Guests</label>
@@ -36,24 +36,28 @@
       <input name="last_name_{{ i }}" class="u-full-width" type="text" placeholder="Loblaw" id="last_name">
     </div>
     <div class="four columns">
-      <fieldset>
+      <fieldset id="attending-group">
         <label for="">Attending?</label>
         <div class="three columns">
           <label for="attending-yes">
-            <input type="radio" name="attending_{{ i }}" id="attending_yes_{{ i }}" value="yes" /> Yes
+            <input type="radio" class="attending" name="attending_{{ i }}" id="attending_yes_{{ i }}" value="yes" /> Yes
           </label>
         </div>
         <div class="three columns">
           <label for="attending-no">
-            <input type="radio" name="attending_{{ i }}" id="attending_no_{{ i }}" value="no" /> No
+            <input type="radio" class="attending" name="attending_{{ i }}" id="attending_no_{{ i }}" value="no" /> No
           </label>
         </div>
       </fieldset>
     </div>
   </div>
   {% endfor %}
-  <label for="comments">Comments?</label>
-  <textarea name="comments" class="u-full-width" placeholder="Dear Eliot & Michele …" id="comments"></textarea>
-  <input class="button-primary" type="submit" value="Submit">
+  <div class="row">
+    <div class="four columns">
+      <label for="comments">Comments?</label>
+      <textarea name="comments" class="u-full-width" placeholder="Dear Eliot & Michele …" id="comments"></textarea>
+      <input class="button-primary" type="submit" value="Submit">
+    </div>
+  </div>
 </form>
 {% endblock %}
