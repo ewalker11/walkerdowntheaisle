@@ -1,15 +1,37 @@
-class Attendee(object):
+from peewee import (
+    BooleanField,
+    CharField,
+    FixedCharField,
+    Model,
+    PostgresqlDatabase,
+    PrimaryKeyField,
+)
 
-    def __init__(self, title=None, first_name=None, last_name=None, attending=None, submission=None, comments=None):
-        self.title = title
-        self.first_name = first_name
-        self.last_name = last_name
-        self.attending = attending
-        self.submission = submission
-        self.comments = comments
+db = PostgresqlDatabase(
+    'walkerdowntheaisle',
+    user='eliotwalker',
+    host='localhost',
+)
+
+
+class Attendee(Model):
+
+    class Meta:
+        database = db
+
+    id = PrimaryKeyField()
+    title = FixedCharField(max_length=4, null=True)
+    first_name = CharField()
+    last_name = CharField()
+    attending = BooleanField()
+    submission = CharField()
+    comments = CharField(max_length=2048, null=True)
 
     def __repr__(self):
         return repr(self.__dict__)
 
     def __str__(self):
         return self.__repr__()
+
+
+db.create_table(Attendee, safe=True)

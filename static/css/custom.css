@@ -1,4 +1,5 @@
-body {
+html, body {
+  height: 100%;
   font-family: BebasNeue;
 }
 
@@ -8,6 +9,10 @@ img {
 }
 
 .splash {
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 6.5rem;
+
   background: #00adef;
   text-align: center;
 }
@@ -24,8 +29,12 @@ img {
 .splash h1 .amp{
   font-size: 12rem;
   font-family: Garamond, serif;
-  padding-left: .5rem;
-  padding-right: .5rem;
+}
+
+@media(max-width: 500px) {
+  .splash h1 .amp {
+    display: block;  /* "&" gets its own line */
+  }
 }
 
 .splash h2 {
@@ -46,11 +55,36 @@ img {
 
 .splash a:hover {
   background: #ec008c;
+  color: #fff;
+}
+
+.splash .details,
+.splash .img-wrapper {
+  background-color: #00adef;
 }
 
 .splash .img-wrapper {
+  position: relative;
+  width: 100%;
+
+  /* Flexbox is a better solution for "fill the rest of the screen" */
+  height: calc(100% - 22rem);  /* height of screen minus approx height of text content */
+}
+
+.splash .cute-photo {
   background: url('../img/eliot_and_michele_skyline.png') no-repeat;
+  background-position: 53% 0;
   background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.navbar {
+  position: fixed;
+  box-sizing: border-box;
 }
 
 .navbar + .docs-section {
@@ -73,7 +107,8 @@ img {
   display: none;
 }
 
-.navbar > .container {
+.navbar + .container {
+  padding-top: 7.5rem;
   width: 100%;
 }
 

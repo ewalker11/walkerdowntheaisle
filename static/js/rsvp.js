@@ -18,8 +18,9 @@ Zepto(function($){
       var firstName = $(elem).find('#first_name');
       var lastName = $(elem).find('#last_name');
 
-      if ($(elem).find('.attending:checked').empty()) {
+      if ($(elem).find('.attending:checked').length == 0) {
         $(elem).find('.attending').addClass('error');
+        console.log('shit not set');
         erred = true;
       }
 
@@ -35,7 +36,10 @@ Zepto(function($){
     });
 
     if (erred) {
+      console.log('erred');
       e.preventDefault();
+    } else {
+      return true;
     }
   });
 });

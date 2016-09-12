@@ -36,7 +36,6 @@ def index():
 
 @app.route('/rsvp', methods=['POST'])
 def create_attendees():
-    attendees = []
     submission = str(uuid.uuid4())
     for i in xrange(int(request.form.get('num_guests'))):
         attending_raw = request.form.get('attending_{}'.format(i))
@@ -49,7 +48,7 @@ def create_attendees():
         )
         if i == 0:
             attendee.comments = request.form.get('comments')
-        attendees.append(attendee)
+        attendee.save()
     return router('rsvp')
 
 
