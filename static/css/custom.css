@@ -1,6 +1,10 @@
 html, body {
   height: 100%;
-  font-family: BebasNeue;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,h2 {
+  font-family: BebasNeue, serif;
 }
 
 img {
@@ -82,9 +86,83 @@ img {
   right: 0;
 }
 
+.details-page {
+  background: url(../img/9ofs.jpg) no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.details-page .spacer {
+  box-sizing: border-box;
+  padding-top: 9.5rem;
+  position: static;
+  z-index: 2;
+}
+
+.details-page .container {
+  background-color: #fff;
+  opacity: 0.96;
+  box-sizing: border-box;
+  padding: 3rem;
+  position: static;
+  z-index: 2;
+}
+
+.details-page h1 {
+  text-align: center;
+}
+
+.details-page p {
+  text-align: center;
+}
+
+.details-page .row {
+  padding: 2rem 2rem 1rem 2rem;
+}
+
+.details-page .map {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.details-page .map iframe {
+  border: 0;
+  height: 300px;
+}
+
+@media screen and (max-width: 549px) {
+  .details-page .text {
+    padding-top: 2rem;
+  }
+}
+
+.details-page .address p {
+  margin: 0;
+}
+
+.details-page .address p:first-child {
+  margin-bottom: 1.5rem;
+}
+
+.details-page .address p:last-child {
+  margin-bottom: 1.5rem;
+}
+
+.details-page .venue-title {
+  font-family: BebasNeue, serif;
+  font-size: 2rem;
+}
+
 .navbar {
   position: fixed;
   box-sizing: border-box;
+  font-family: BebasNeue, serif;
 }
 
 .navbar + .docs-section {
@@ -153,8 +231,19 @@ img {
   width: 100%;
 }
 
-.hidden-rsvp-row {
-  display: none;
+.rsvp-row {
+  max-height: 2rem;
+  transition: max-height 10s ease;
+  -webkit-transition: max;
+}
+
+.rsvp-row.visible {
+  max-height: 2rem;
+}
+
+.rsvp-row.hidden {
+  max-height: 0;
+  overflow: hidden;
 }
 
 input.error {

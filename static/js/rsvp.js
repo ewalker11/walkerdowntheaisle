@@ -1,10 +1,12 @@
 Zepto(function($){
   $('#num_guests').on('change', function(e){
-    while ($('.rsvp_row:not(.hidden-rsvp-row)').length < e.target.value) {
-      $('.hidden-rsvp-row').first().removeClass('hidden-rsvp-row')
+    while ($('.rsvp_row:not(.hidden)').length < e.target.value) {
+      var hiddenRow = $('.hidden').first();
+      hiddenRow.removeClass('hidden').addClass('visible');
     }
-    while ($('.rsvp_row:not(.hidden-rsvp-row)').length > e.target.value) {
-      $('.rsvp_row:not(.hidden-rsvp-row)').last().addClass('hidden-rsvp-row')
+    while ($('.rsvp_row:not(.hidden)').length > e.target.value) {
+      var hiddenRow = $('.rsvp_row:not(.hidden)').last();
+      hiddenRow.removeClass('visible').addClass('hidden');
     }
   });
 
@@ -14,7 +16,7 @@ Zepto(function($){
   
   $('#rsvp-form').on('submit', function(e){
     var erred = false;
-    $('.rsvp_row:not(.hidden-rsvp-row)').each(function(idx, elem) {
+    $('.rsvp_row:not(.hidden)').each(function(idx, elem) {
       var firstName = $(elem).find('#first_name');
       var lastName = $(elem).find('#last_name');
 

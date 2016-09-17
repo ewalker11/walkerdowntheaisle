@@ -16,7 +16,7 @@
     </div>
   </div>
   {% for i in [0, 1, 2, 3] %}
-  <div class="row rsvp_row{{ ' hidden-rsvp-row' if i > 0 else '' }}">
+  <div class="row rsvp_row{{ ' hidden' if i > 0 else ' visible' }}">
     <div class="two columns">
       <label for="name_title">Title</label>
       <select name="name_title_{{ i }}" class="u-full-width" id="name_title">
