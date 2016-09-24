@@ -9,6 +9,7 @@ from jinja2 import TemplateNotFound
 from models import Attendee
 
 PAGE_DATA = {}
+GOOGLE_API_KEY = 'AIzaSyD2wKguO9cc4GhsawQS6Ut4Ek9s9s5z5_4'
 
 for filepath in glob.glob('data/*'):
     page = os.path.split(filepath)[1].split('.')[0]
@@ -54,7 +55,12 @@ def create_attendees():
 
 @app.route('/<page>', methods=['GET'])
 def router(page):
-    return render_template('{}.html'.format(page), page_name=page, **PAGE_DATA.get(page, {}))
+    return render_template(
+        '{}.html'.format(page),
+        page_name=page,
+        google_api_key=GOOGLE_API_KEY,
+        **PAGE_DATA.get(page, {})
+    )
 
 
 if __name__ == '__main__':

@@ -24,6 +24,7 @@ img {
 .splash h1 {
   color: #FFFFFF;
   font-size: 10rem;
+
 }
 
 .splash h1 .ell {
@@ -41,11 +42,16 @@ img {
   }
 }
 
-.splash h2 {
+.splash .subtext {
   color: #FFFFFF;
   font-size: 4rem;
   font-family: Garamond, serif;
   margin-top: -4rem;
+  margin-bottom: 1rem;
+}
+
+.splash .subtext img {
+  height: 3.5rem;
 }
 
 .splash a {
@@ -76,8 +82,8 @@ img {
 }
 
 .splash .cute-photo {
-  background: url('../img/eliot_and_michele_skyline.png') no-repeat;
-  background-position: 53% 0;
+  background: url('../img/eliot_and_michele_skyline.svg') no-repeat;
+  background-position: 53% 100%;
   background-size: cover;
   position: absolute;
   top: 0;
@@ -91,6 +97,7 @@ img {
   background-position: 50% 50%;
   background-size: cover;
   position: absolute;
+  background-attachment: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -106,12 +113,21 @@ img {
 }
 
 .details-page .container {
-  background-color: #fff;
-  opacity: 0.96;
   box-sizing: border-box;
-  padding: 3rem;
   position: static;
   z-index: 2;
+}
+
+.details-page .section:first-of-type {
+  margin-top: 8rem;
+  padding-top: 1rem;
+}
+
+.details-page .section {
+  margin-top: 2rem;
+  background-color: #FFFFFF;
+  opacity: 0.96;
+  padding: 3rem 5rem 3rem 5rem;
 }
 
 .details-page h1 {
@@ -120,10 +136,6 @@ img {
 
 .details-page p {
   text-align: center;
-}
-
-.details-page .row {
-  padding: 2rem 2rem 1rem 2rem;
 }
 
 .details-page .map {
@@ -252,4 +264,12 @@ input.error {
 
 fieldset.error {
   background: lightpink;
+}
+
+.airbnb {
+  background-color: #FF656B;
+}
+
+.airbnb img {
+  width: 300px;
 }

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="details-page">
+<div class="container">
+  <div class="section">
+    <h1>Accommodations</h1>
+    <p>Dear friends and family, for those of you traveling from out of town, first and foremost thank you for making the trip to celebrate with us! Please use your internet searching skills to find the best deal, but we found a couple options listed below.</p>
+  </div>
+  <div class="section">
+    <div class="row">
+      <div class="map six columns">
+        <iframe class="u-full-width" src="https://www.google.com/maps/embed/v1/directions?key={{ google_api_key }}&origin=Hilton+Faneuil+Hall&destination=9OFS,Boston+MA">
+        </iframe>
+      </div>
+      <div class="text six columns">
+        <div class="address">
+          <p><span class="venue-title">Hilton Boston Downtown / Faneuil Hall</span></p>
+          <p>89 Broad St</p>
+          <p>Boston, MA 02110</p>
+          <p></p>
+        </div>
+        <p>Michele, Eliot and Ellie will be residing in the Hilton! If you want to stay as close as possible to us please use our group code: <b>BW0603</b>. Queen rooms are available for $229/night plus taxes and fees. Must reserve by May 12th, 2017.</p>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="row">
+      <div class="map six columns">
+        <iframe class="u-full-width" src="https://www.google.com/maps/embed/v1/directions?key={{ google_api_key }}&origin=The+Langham &destination=9OFS,Boston+MA">
+        </iframe>
+      </div>
+      <div class="text six columns">
+        <div class="address">
+          <p><span class="venue-title">The Langham</span></p>
+          <p>250 Franklin St</p>
+          <p>Boston, MA 02110</p>
+          <p><span><a href="http://www.langhamhotels.com/tlbos-brush-walker-wedding">Book Online</a></span>  &bull;  <span>(617) 451-1900</span></p>
+        </div>
+        <p>The Langham is a lovely option just 4 minutes from 9OFs! To register for rooms please use the link above. Rooms are available for $290/night plus taxes and fees. </p>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="row">
+      <div class="map six columns airbnb">
+        <a href="https://www.airbnb.com/s/Boston--MA--United-States?checkin=06%2F02%2F2017&checkout=06%2F04%2F2017&guests=1&zoom=15&search_by_map=true&sw_lat=42.34859844230863&sw_lng=-71.06735425219631&ne_lat=42.36823670027264&ne_lng=-71.04435162768459&ss_id=4kuz2pku&page=1&source=filters&airbnb_plus_only=false&s_tag=00tPdGMg">
+          <img src="{{ url_for('static', filename='img/airbnb_vertical_lockup_white_web.png') }}">
+        </a>
+      </div>
+      <div class="text six columns">
+        <div class="address">
+          <p><span class="venue-title">AirBnb</span></p>
+          <p><span><a href="https://www.airbnb.com/s/Boston--MA--United-States?checkin=06%2F02%2F2017&checkout=06%2F04%2F2017&guests=1&zoom=15&search_by_map=true&sw_lat=42.34859844230863&sw_lng=-71.06735425219631&ne_lat=42.36823670027264&ne_lng=-71.04435162768459&ss_id=4kuz2pku&page=1&source=filters&airbnb_plus_only=false&s_tag=00tPdGMg">Book Online</a></span></p>
+        </div>
+        <p>As current residents of San Francisco, we are big fans of the sharing economy and AirBnB. Please check out the area and find yourself a room close by!</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
