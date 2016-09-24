@@ -1,1 +1,22 @@
-{"registry": [{"url": "https://www.zola.com/registry/micheleandeliot", "details": "", "name": "Zola", "photo_url": ""}, {"url": "https://www.macys.com/wgl/registry/guest/6652757", "details": "", "name": "Macy's", "photo_url": ""}, {"url": "http://www.crateandbarrel.com/gift-registry/michele-brush-and-eliot-walker/r5584681", "details": "", "name": "Crate and Barrel", "photo_url": ""}]}
+{
+  "registry": [
+    {
+      "url": "https://www.bedbathandbeyond.com/store/giftregistry/view_registry_guest.jsp?registryId=543807547&eventType=Wedding&pwsurl=",
+      "details": "",
+      "name": "Bed Bath & Beyond",
+      "photo_url": "img/bed_bath_and_beyond.jpg"
+    },
+    {
+      "url": "https://www.macys.com/wgl/registry/guest/6652757",
+      "details": "",
+      "name": "Macy's",
+      "photo_url": "img/macys.jpg"
+    },
+    {
+      "url": "http://www.crateandbarrel.com/gift-registry/michele-brush-and-eliot-walker/r5584681",
+      "details": "",
+      "name": "Crate & Barrel",
+      "photo_url": "img/crate_and_barrel.png"
+    }
+  ]
+}

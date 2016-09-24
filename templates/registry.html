@@ -2,9 +2,8 @@
 {% block container %}
 <div class="row">
   {% for reg in registry %}
-  <div class="one-third column"></div>
-  <div class="two-thirds column">
-    <h1><a href="{{ reg.url }}">{{ reg.name }}</a></h1>
+  <div class="one-third column registry">
+    <a href="{{ reg.url }}"><img class="u-full-width" src="{{ url_for('static', filename=reg.photo_url) }}"></a>
   </div>
   {% endfor %}
 </div>
