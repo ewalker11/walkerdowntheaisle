@@ -33,7 +33,7 @@ img {
 
 .splash h1 .amp{
   font-size: 12rem;
-  font-family: Garamond, serif;
+  font-family: "EB Garamond", serif;
 }
 
 /*@media(max-width: 500px) {*/
@@ -45,7 +45,7 @@ img {
 .splash .subtext {
   color: #FFFFFF;
   font-size: 4rem;
-  font-family: Garamond, serif;
+  font-family: "EB Garamond", serif;
   margin-top: -2rem;
   margin-bottom: 1rem;
 }
@@ -68,6 +68,8 @@ img {
   vertical-align: top;
   border-width: 0;
   margin-top: 1rem;
+  font-family: BebasNeue, serif;
+  font-k
 }
 
 .splash a:hover {
@@ -85,7 +87,7 @@ img {
   width: 100%;
 
   /* Flexbox is a better solution for "fill the rest of the screen" */
-  height: calc(100% - 24rem);  /* height of screen minus approx height of text content */
+  height: calc(100% - 23rem);  /* height of screen minus approx height of text content */
 }
 
 .splash .cute-photo {
@@ -235,36 +237,47 @@ img {
   color: #33C3F0;
 }
 
+h3 {
+  clear: both;
+  font-size: 2rem
+}
+
+.rsvp-row {
+  height: 2rem;
+  line-height: 2rem;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+}
+
+.rsvp-row h3 {
+  display: none;
+}
+
+#rsvp-form .visible {
+  opacity: 1;
+  overflow: visible;
+  height: 2rem;
+  line-height: 2rem;
+}
+
+#rsvp-form .hidden {
+  opacity: 0;
+  overflow: hidden;
+  height: 0;
+  line-height: 0;
+}
 
 @media(max-width: 550px) {
   #rsvp-form {
     margin-left: 2rem;
     margin-right: 2rem;
   }
-}
 
-.rsvp-row {
-  height: 2rem;
-  line-height: 2rem;
-  transition-property: height, line-height;
-  -webkit-transition-property: height, line-height;
-  -moz-transition-property: height, line-height;
-  -o-transition-property: height, line-height;
-  transition-duration: 10s, 10s;
-  -webkit-transition-duration: 10s, 10s;
-  -moz-transition-duration: 10s, 10s;
-  -o-transition-duration: 10s, 10s;
-}
-
-#rsvp-form .visible {
-  height: 2rem;
-  line-height: 2rem;
-}
-
-#rsvp-form .hidden {
-  overflow: hidden;
-  height: 0;
-  line-height: 0;
+  .rsvp-row h3 {
+    display: block;
+  }
 }
 
 input.error {
@@ -294,3 +307,4 @@ fieldset.error {
 .registry:nth-of-type(3) {
   padding-top: 11rem;
 }
+
