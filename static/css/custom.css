@@ -137,6 +137,16 @@ img {
   padding: 3rem 5rem 3rem 5rem;
 }
 
+@media(max-width: 800px) {
+  .details-page .section {
+    padding: 2rem 2rem 2rem 2rem;
+  }
+
+  .details-page .container {
+    width: 92%
+  }
+}
+
 .details-page h1 {
   text-align: center;
 }
