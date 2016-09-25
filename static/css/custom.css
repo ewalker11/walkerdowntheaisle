@@ -235,6 +235,14 @@ img {
   color: #33C3F0;
 }
 
+
+@media(max-width: 550px) {
+  #rsvp-form {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
 .rsvp-row {
   height: 2rem;
   line-height: 2rem;
