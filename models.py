@@ -7,10 +7,14 @@ from peewee import (
     PrimaryKeyField,
 )
 
+import settings
+
 db = PostgresqlDatabase(
-    'walkerdowntheaisle',
-    user='eliotwalker',
-    host='localhost',
+    settings.POSTGRES_URL.path[1:],
+    user=settings.POSTGRES_URL.username,
+    password=settings.POSTGRES_URL.password,
+    host=settings.POSTGRES_URL.hostname,
+    port=settings.POSTGRES_URL.port,
 )
 
 
