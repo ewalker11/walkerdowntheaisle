@@ -3,7 +3,7 @@ import json
 import os
 import uuid
 
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request
 from jinja2 import TemplateNotFound
 
 from models import Attendee
@@ -50,7 +50,7 @@ def create_attendees():
         if i == 0:
             attendee.comments = request.form.get('comments')
         attendee.save()
-    return router('rsvp')
+    return redirect('ty')
 
 
 @app.route('/<page>', methods=['GET'])

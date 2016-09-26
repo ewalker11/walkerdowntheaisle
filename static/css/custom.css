@@ -7,6 +7,10 @@ h1,h2 {
   font-family: BebasNeue, serif;
 }
 
+.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
+  line-height: 35px;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -90,6 +94,15 @@ img {
   height: calc(100% - 23rem);  /* height of screen minus approx height of text content */
 }
 
+@media screen and () {
+
+}
+
+.splash .bone-photo {
+  vertical-align: middle;
+  padding: 0 2rem;
+}
+
 .splash .cute-photo {
   background: url('../img/eliot_and_michele_skyline.svg') no-repeat;
   background-position: 53% 100%;
@@ -105,12 +118,8 @@ img {
   background: url(../img/9ofs.jpg) no-repeat;
   background-position: 50% 50%;
   background-size: cover;
-  position: absolute;
   background-attachment: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  min-height: 100%;
   z-index: 1;
 }
 
@@ -125,10 +134,10 @@ img {
   box-sizing: border-box;
   position: static;
   z-index: 2;
+  padding: 8rem 0 3.5rem 0;
 }
 
 .details-page .section:first-of-type {
-  margin-top: 8rem;
   padding-top: 1rem;
 }
 
@@ -192,6 +201,7 @@ img {
 
 .navbar {
   position: fixed;
+  top: 0;
   box-sizing: border-box;
   font-family: BebasNeue, serif;
   display: block;
@@ -206,7 +216,6 @@ img {
 
 .navbar + .container {
   padding-top: 7.5rem;
-  width: 100%;
 }
 
 .navbar-list {
@@ -243,8 +252,6 @@ h3 {
 }
 
 .rsvp-row {
-  height: 2rem;
-  line-height: 2rem;
   transition: all 1s ease;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
@@ -258,8 +265,8 @@ h3 {
 #rsvp-form .visible {
   opacity: 1;
   overflow: visible;
-  height: 2rem;
-  line-height: 2rem;
+  height: 100%;
+  line-height: 1;
 }
 
 #rsvp-form .hidden {
