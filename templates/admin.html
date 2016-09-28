@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+</head>
+<body>
+  <p>
+    Total Attending: {{ total_attending }}<br/>
+    Total Not Attending: {{ total_not_attending }}
+  </p>
+  <table>
+    <tr><th>RSVP Time</th><th>Title</th><th>First</th><th>Last</th><th>Attending?</th></tr>
+    {% for attendee in attendees %}
+    <tr>
+      <td>{{ attendee.rsvped_at_local }}</td>
+      <td>{{ attendee.title if attendee.title else "-" }}</td>
+      <td>{{ attendee.first_name }}</td>
+      <td>{{ attendee.last_name }}</td>
+      <td>{{ attendee.attending }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

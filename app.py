@@ -2,10 +2,12 @@ import glob
 import json
 import os
 import uuid
+from functools import wraps
 
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, Response
 from jinja2 import TemplateNotFound
 
+import settings
 from models import Attendee
 
 PAGE_DATA = {}
@@ -28,6 +30,25 @@ def page_not_found(_):
 @app.errorhandler(TemplateNotFound)
 def template_not_found(_):
     return render_template('notfound.html'), 404
+
+
+def authenticate():
+    """Sends a 401 response that enables basic auth"""
+    return Response(
+        'Could not verify your access level for that URL.\nYou have to login with proper credentials',
+        401,
+        {'WWW-Authenticate': 'Basic realm="Login Required"'}
+)
+
+
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if auth and auth.username == settings.ADMIN_USERNAME and auth.password == settings.ADMIN_PASSWORD:
+            return f(*args, **kwargs)
+        return authenticate()
+    return decorated
 
 
 @app.route('/', methods=['GET'])
@@ -60,6 +81,26 @@ def router(page):
         page_name=page,
         google_api_key=GOOGLE_API_KEY,
         **PAGE_DATA.get(page, {})
+    )
+
+
+@app.route('/admin', methods=['GET'])
+@requires_auth
+def admin_page():
+    attendees = Attendee.select()
+    total_attending = 0
+    total_not_attending = 0
+    for a in attendees:
+        if a.attending:
+            total_attending += 1
+        else:
+            total_not_attending += 1
+
+    return render_template(
+        'admin.html',
+        attendees=attendees,
+        total_attending=total_attending,
+        total_not_attending=total_not_attending,
     )
 
 
