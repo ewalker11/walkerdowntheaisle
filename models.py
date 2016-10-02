@@ -44,7 +44,7 @@ class Attendee(Model):
             return None
 
         utc_rsvped_at = self.rsvped_at.replace(tzinfo=pytz.utc)
-        return utc_rsvped_at.astimezone(self.PACIFIC_TZ)
+        return utc_rsvped_at.astimezone(self.PACIFIC_TZ).strftime("%Y-%m-%d %H:%M")
 
     def __repr__(self):
         return repr(self.__dict__)
