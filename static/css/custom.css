@@ -281,11 +281,6 @@ h3 {
 }
 
 @media(max-width: 550px) {
-  #rsvp-form {
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
-
   .rsvp-row h3 {
     display: block;
   }
