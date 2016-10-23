@@ -67,6 +67,7 @@ def create_attendees():
             last_name=request.form.get('last_name_{}'.format(i)),
             attending=(attending_raw == 'yes'),
             submission=submission,
+            dinner_option=request.form.get('dinner_option_{}'.format(i))
         )
         if i == 0:
             attendee.comments = request.form.get('comments')

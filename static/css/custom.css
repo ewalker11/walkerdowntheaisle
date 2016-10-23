@@ -286,11 +286,11 @@ h3 {
   }
 }
 
-input.error {
+.error {
   background: lightpink;
 }
 
-fieldset.error {
+input.error {
   background: lightpink;
 }
 
@@ -316,4 +316,20 @@ fieldset.error {
 
 .center {
   text-align: center;
+}
+
+.attending {
+  margin-top: 1rem;
+}
+
+.radio-option {
+  margin-right: 2rem;
+}
+
+.form-disabled {
+  color: lightgrey;
+}
+
+.form-enabled {
+  color: black;
 }

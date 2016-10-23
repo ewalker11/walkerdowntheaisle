@@ -34,24 +34,33 @@
         <label for="first_name">First</label>
         <input name="first_name_{{ i }}" class="u-full-width" type="text" placeholder="First Name" id="first_name">
       </div>
-      <div class="three columns">
+      <div class="two columns">
         <label for="last_name">Last</label>
         <input name="last_name_{{ i }}" class="u-full-width" type="text" placeholder="Last Name" id="last_name">
       </div>
-      <div class="four columns">
+      <div class="two columns">
         <fieldset id="attending-group">
-          <label for="">Attending?</label>
-          <div class="three columns">
-            <label for="attending_yes_{{ i }}">
-              <input type="radio" class="attending" name="attending_{{ i }}" id="attending_yes_{{ i }}" value="yes" /> Yes
-            </label>
-          </div>
-          <div class="three columns">
-            <label for="attending_no_{{ i }}">
-              <input type="radio" class="attending" name="attending_{{ i }}" id="attending_no_{{ i }}" value="no" /> No
-            </label>
-          </div>
+          <label for="">
+            <label>Attending?</label>
+            <span class="radio-option">
+              <input type="radio" class="attending" name="attending_{{ i }}" id="attending_yes_{{ i }}" value="yes" />
+              <span class="label-body">Yes</span>
+            </span>
+            <span class="radio-option">
+              <input type="radio" class="attending" name="attending_{{ i }}" id="attending_no_{{ i }}" value="no" />
+              <span class="label-body">No</span>
+            </span>
+          </label>
         </fieldset>
+      </div>
+      <div class="two columns">
+        <label for="dinner_option">Entree</label>
+        <select name="dinner_option_{{ i }}" class="u-full-width form-disabled" id="dinner_option" disabled>
+          <option selected disabled>Select</option>
+          <option value="Fish">Fish</option>
+          <option value="Beef">Beef</option>
+          <option value="Vegetarian">Vegetarian</option>
+        </select>
       </div>
     </div>
   </div>

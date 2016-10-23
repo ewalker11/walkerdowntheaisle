@@ -10,7 +10,19 @@ Zepto(function($){
     }
   });
 
+  $('.attending').on('change', function(e){
+    if (this.value == 'yes') {
+      $('#dinner_option').addClass('form-enabled').removeClass('form-disabled').prop('disabled', false);
+    } else {
+      $('#dinner_option').addClass('form-disabled').removeClass('form-enabled').prop('disabled', true);
+    }
+  });
+
   $('input').on('input', function(e) {
+    $(e.target).removeClass('error');
+  });
+
+  $('select').on('change', function(e) {
     $(e.target).removeClass('error');
   });
   
@@ -22,7 +34,6 @@ Zepto(function($){
 e
       if ($(elem).find('.attending:checked').length == 0) {
         $(elem).find('.attending').addClass('error');
-        console.log('shit not set');
         erred = true;
       }
 
@@ -35,10 +46,17 @@ e
         lastName.addClass('error');
         erred = true;
       }
+
+      var attending = $(elem).find('.attending:checked');
+      var dinnerOption = $(elem).find('#dinner_option');
+      if (attending.length > 0 && attending[0].value == 'yes' && dinnerOption.val() == 'Select') {
+        console.log(dinnerOption);
+        dinnerOption.addClass('error');
+        erred = true;
+      }
     });
 
     if (erred) {
-      console.log('erred');
       e.preventDefault();
     } else {
       return true;

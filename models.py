@@ -37,6 +37,7 @@ class Attendee(Model):
     submission = CharField()
     comments = CharField(max_length=2048, null=True)
     rsvped_at = DateTimeField(default=datetime.utcnow)
+    dinner_option = CharField(null=True)
 
     @property
     def rsvped_at_local(self):
