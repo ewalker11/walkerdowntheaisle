@@ -6,6 +6,7 @@ from functools import wraps
 
 from flask import Flask, redirect, render_template, request, Response
 from jinja2 import TemplateNotFound
+from mailer import Mailer, Message
 
 import settings
 from models import Attendee
@@ -20,6 +21,8 @@ for filepath in glob.glob('data/*'):
 
 
 app = Flask('walkerdowntheaisle')
+sender = Mailer(host='smtp.mailgun.com', use_ssl=True)
+sender.login(settings.MAILER_USERNAME, settings.MAILER_PASSWORD)
 
 
 @app.errorhandler(404)
@@ -56,9 +59,26 @@ def index():
     return render_template('index.html')
 
 
+def _send_rsvp_notification_email(attendees):
+    if not attendees:
+        return
+
+    msg = Message(
+        From='noreply@walkerdowntheaisle.us',
+        To=settings.MAILER_RECIPIENTS,
+        Subject='New Wedding RSVP!',
+        Charset='utf-8',
+        HTML=render_template('email.html', attendees=attendees),
+        Body='See http://walkerdowntheaisle.us/admin'
+    )
+
+    sender.send(msg)
+
+
 @app.route('/rsvp', methods=['POST'])
 def create_attendees():
     submission = str(uuid.uuid4())
+    attendees = []
     for i in xrange(int(request.form.get('num_guests'))):
         attending_raw = request.form.get('attending_{}'.format(i))
         attendee = Attendee(
@@ -71,7 +91,11 @@ def create_attendees():
         )
         if i == 0:
             attendee.comments = request.form.get('comments')
+
         attendee.save()
+        attendees.append(attendee)
+
+    _send_rsvp_notification_email(attendees)
     return redirect('ty')
 
 
