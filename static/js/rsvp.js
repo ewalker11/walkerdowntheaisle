@@ -10,11 +10,12 @@ Zepto(function($){
     }
   });
 
-  $('.attending').on('change', function(e){
+  $('.attending').on('change', function(){
+    var dinnerOption = $($(this).parents(".rsvp-row")[0]).find('#dinner_option');
     if (this.value == 'yes') {
-      $('#dinner_option').addClass('form-enabled').removeClass('form-disabled').prop('disabled', false);
+      dinnerOption.addClass('form-enabled').removeClass('form-disabled').prop('disabled', false);
     } else {
-      $('#dinner_option').addClass('form-disabled').removeClass('form-enabled').prop('disabled', true);
+      dinnerOption.addClass('form-disabled').removeClass('form-enabled').prop('disabled', true);
     }
   });
 
@@ -31,7 +32,7 @@ Zepto(function($){
     $('.rsvp-row:not(.hidden)').each(function(idx, elem) {
       var firstName = $(elem).find('#first_name');
       var lastName = $(elem).find('#last_name');
-e
+
       if ($(elem).find('.attending:checked').length == 0) {
         $(elem).find('.attending').addClass('error');
         erred = true;
